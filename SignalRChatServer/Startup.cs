@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using Microsoft.AspNet.SignalR;
+using Microsoft.Owin;
 using Owin;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,9 @@ namespace SignalRChatServer
         public void Configuration (IAppBuilder app)
         {
             app.MapSignalR();
+            int disconnectTimeout = 6;
+
+            GlobalHost.Configuration.DisconnectTimeout = TimeSpan.FromSeconds(disconnectTimeout);
 
         }
 

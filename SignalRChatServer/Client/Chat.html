@@ -64,7 +64,10 @@
             // Number 13 is the "Enter" key on the keyboard
             if (event.keyCode === 13) {
                 // Trigger the button element with a click
-                $("#sendMsg").click();
+                if($('#inputMsg').val()!=""){
+                    $("#sendMsg").click();
+                }
+               
             }
         });
 
@@ -82,14 +85,20 @@
             chat.server.send(username, $('#inputMsg').val());
             $('#inputMsg').val("");
         });
-       
-        chat.client.broadCastMessage = function (user,message) {
-
-            $("#messages").append("<li><strong>" + user + ": </strong>" + message + "</li>");
+         
+        chat.client.broadCastMessage = function (user,connectionidx,message) {
+            if (connectionid == connectionidx) {
+                $("#messages").append("<li><strong>" + user + ": </strong>" + message + "</li>");
+            } else {
+                $("#messages").append("<li>" + user + ": " + message + "</li>");
+            }
+           
 
         }
+        var connectionid = "";
         $.connection.hub.start().done(function () {
             chat.server.connect(username);
+            connectionid = $.connection.hub.id;
         });
     });
 
@@ -99,7 +108,9 @@
    
    background: linear-gradient(to right, #734b6d, #42275a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   } 
-
+  ul {
+  list-style-type: none;
+}
 
 </style>
 </body>

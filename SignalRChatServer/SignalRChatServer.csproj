@@ -104,8 +104,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\BelcorpChat.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Client\Chat.html" />
+    <Content Include="index.html" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
     <Content Include="Scripts\jquery.signalR-2.4.0.js" />

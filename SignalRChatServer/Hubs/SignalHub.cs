@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Threading.Tasks;
 
 namespace SignalRChatServer.Hubs
 {
@@ -21,14 +22,25 @@ namespace SignalRChatServer.Hubs
 
             Clientes.Add(c);
             Clients.All.updateClientes(Clientes.Count(), Clientes.Select(x => x.name));
+            Clients.All.broadCastMessage("[" + c.name + "]", Context.ConnectionId, "Ha ingresado a la sala");
+
 
         }
 
         public void Send (string userName, string message)
         {
 
-            Clients.All.broadCastMessage(userName, message);
+            Clients.All.broadCastMessage(userName, Context.ConnectionId, message);
 
+        }
+        public override Task OnDisconnected(bool stopCalled)
+        {
+            var disUser = Clientes.Where(x => x.id == Context.ConnectionId).FirstOrDefault();
+            Clientes.Remove(disUser);
+            Clients.All.updateClientes(Clientes.Count(), Clientes.Select(x => x.name));
+            Clients.All.broadCastMessage("["+disUser.name+"]", Context.ConnectionId, "Se ha desconectado");
+
+            return base.OnDisconnected(stopCalled);
         }
 
     }

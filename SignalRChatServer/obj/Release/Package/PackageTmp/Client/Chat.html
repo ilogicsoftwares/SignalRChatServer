@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head> 
+<body>
+
+
+    <div class="col-sm-12" style="margin-top:50px">
+
+        <div class="row">
+            <div class="col-sm-2" id="listusers">
+                <div class="form-group">
+                    <select multiple class="form-control" id="userList" style="height:500px;overflow:auto">
+                        
+                    </select>
+                </div>
+         
+            </div>
+            <div class="col">
+                <ul  class="form-control" id="messages" style="height:500px">
+                        
+                 </ul>
+                <div class="input-group mb-3">
+                    <input type="text" id="inputMsg" class="form-control" placeholder="Enviar Mensaje" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button id="sendMsg" class="btn btn-outline-secondary" type="submit">Enviar</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="../Scripts/jquery-1.6.4.min.js"></script>
+    <script src="../Scripts/jquery.signalR-2.4.0.js"></script>
+    <script src="../Scripts/jquery.signalR-2.4.0.js"></script>
+    <script src="../signalr/hubs"></script>
+<script>
+
+   
+    $(function () {
+
+      
+
+        var chat = $.connection.signalHub;
+        
+        do {
+            username=prompt("Insert your username:");
+
+        }while (username==null || username=="");
+
+
+       
+        var input = $('#inputMsg');
+        input.bind("keyup", function (event) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Number 13 is the "Enter" key on the keyboard
+            if (event.keyCode === 13) {
+                // Trigger the button element with a click
+                $("#sendMsg").click();
+            }
+        });
+
+
+
+        chat.client.updateClientes = function (userCount, userList) {
+            $("#userList").empty();
+            userList.forEach(function (userName) {
+               
+                $("#userList").append("<option><strong>" + userName +"<strong>"+ "</option>");
+
+            });
+        }
+        $('#sendMsg').click(function () {
+            chat.server.send(username, $('#inputMsg').val());
+            $('#inputMsg').val("");
+        });
+       
+        chat.client.broadCastMessage = function (user,message) {
+
+            $("#messages").append("<li><strong>" + user + ": </strong>" + message + "</li>");
+
+        }
+        $.connection.hub.start().done(function () {
+            chat.server.connect(username);
+        });
+    });
+
+</script>
+<style>
+  body{
+   
+   background: linear-gradient(to right, #734b6d, #42275a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  } 
+  ul {
+  list-style-type: none;
+}
+
+</style>
+</body>
+
+</html>

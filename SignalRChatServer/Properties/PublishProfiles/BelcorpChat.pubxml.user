@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo es utilizado por el proceso de paquete/publicación de nuestro proyecto Web. Puede personalizar el comportamiento de este proceso
+editando este archivo MSBuild. Para conocer más acerca de esto, visite http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\BelcorpChat</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Microsoft.AspNet.SignalR.Core.dll">
+      <publishTime>11/26/2018 13:00:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.SignalR.SystemWeb.dll">
+      <publishTime>11/26/2018 13:00:51</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>11/26/2018 12:57:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>11/26/2018 13:00:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>11/26/2018 13:00:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>11/26/2018 13:00:49</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>11/26/2018 13:00:47</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>11/26/2018 13:00:47</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>11/26/2018 12:57:50</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>11/26/2018 12:57:50</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>11/26/2018 12:57:50</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>11/26/2018 12:57:50</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>11/26/2018 12:57:50</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>11/26/2018 12:57:50</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>11/26/2018 12:57:50</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>11/26/2018 12:57:50</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>11/26/2018 12:57:50</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>11/26/2018 12:57:50</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>11/26/2018 12:57:50</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>11/26/2018 12:57:50</publishTime>
+    </File>
+    <File Include="bin/SignalRChatServer.dll">
+      <publishTime>11/27/2018 14:16:12</publishTime>
+    </File>
+    <File Include="Client/Chat.html">
+      <publishTime>11/27/2018 13:04:31</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>11/26/2018 13:00:52</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.6.4.js">
+      <publishTime>11/26/2018 13:00:45</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.6.4.min.js">
+      <publishTime>11/26/2018 13:00:45</publishTime>
+    </File>
+    <File Include="Scripts/jquery.signalR-2.4.0.js">
+      <publishTime>11/26/2018 13:00:46</publishTime>
+    </File>
+    <File Include="Scripts/jquery.signalR-2.4.0.min.js">
+      <publishTime>11/26/2018 13:00:46</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>11/27/2018 14:16:12</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
